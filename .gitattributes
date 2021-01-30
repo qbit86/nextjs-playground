@@ -1,0 +1,17 @@
+*   text=auto
+
+.editorconfig   text
+.gitattributes  text
+.gitignore  text
+
+*.js    text
+*.html  text
+*.md    text
+*.ts    text
+*.txt   text
+
+*.gif   binary
+*.ico   binary
+*.jpeg  binary
+*.jpg   binary
+*.png   binary

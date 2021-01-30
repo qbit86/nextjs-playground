@@ -1,0 +1,6 @@
+.next/
+.vscode/
+bin/
+node_modules/
+obj/
+out/
