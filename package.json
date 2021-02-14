@@ -14,6 +14,7 @@
   },
   "keywords": [],
   "dependencies": {
+    "date-fns": "^2.17.0",
     "gray-matter": "^4.0.2",
     "next": "^10.0.6",
     "react": "^17.0.1",
