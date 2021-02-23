@@ -1,4 +1,4 @@
-const basePath = process.env.NODE_ENV === 'production' ? '/playground' : '';
+const basePath = process.env.NODE_ENV === 'production' ? '/nextjs-playground' : '';
 
 module.exports = {
   basePath,
