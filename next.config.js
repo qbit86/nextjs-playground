@@ -1,6 +1,7 @@
-const basePath = process.env.NODE_ENV === 'production' ? '/nextjs-playground' : '';
+const isProd = process.env.NODE_ENV === 'production';
+const basePath = isProd ? '/nextjs-playground' : '';
 
 module.exports = {
   basePath,
-  assetPrefix: `${basePath}`
+  assetPrefix: isProd ? `${basePath}/` : ''
 };
