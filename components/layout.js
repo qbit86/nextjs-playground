@@ -29,7 +29,7 @@ export default function Layout({ children, home }) {
         {home ? (
           <>
             <img
-              src="/images/profile.png"
+              src={`${nextConfig.basePath}/images/profile.png`}
               className={utilStyles.borderCircle}
               height={144}
               width={144}
@@ -43,7 +43,7 @@ export default function Layout({ children, home }) {
             <Link href="/">
               <a>
                 <img
-                  src="/images/profile.png"
+                  src={`${nextConfig.basePath}/images/profile.png`}
                   className={utilStyles.borderCircle}
                   height={108}
                   width={108}
