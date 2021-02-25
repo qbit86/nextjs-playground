@@ -8,6 +8,8 @@ const name = 'Lorem Ipsum'
 export const siteTitle = 'Next.js Sample Website'
 
 export default function Layout({ children, home }) {
+  const isProd = process.env.NODE_ENV === 'production';
+  const assetSuffix = isProd ? '' : '-dev';
   return (
     <div className={styles.container}>
       <Head>
@@ -29,7 +31,7 @@ export default function Layout({ children, home }) {
         {home ? (
           <>
             <img
-              src={`${nextConfig.basePath}/images/profile.png`}
+              src={`${nextConfig.basePath}/images/profile${assetSuffix}.png`}
               className={utilStyles.borderCircle}
               height={144}
               width={144}
@@ -43,7 +45,7 @@ export default function Layout({ children, home }) {
             <Link href="/">
               <a>
                 <img
-                  src={`${nextConfig.basePath}/images/profile.png`}
+                  src={`${nextConfig.basePath}/images/profile${assetSuffix}.png`}
                   className={utilStyles.borderCircle}
                   height={108}
                   width={108}
