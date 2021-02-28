@@ -7,7 +7,7 @@ import nextConfig from '../next.config'
 const name = 'Lorem Ipsum'
 export const siteTitle = 'Next.js Sample Website'
 
-export default function Layout({ children, home }) {
+export default function Layout({ children, home}: { children: React.ReactNode, home?: boolean }) {
   const isProd = process.env.NODE_ENV === 'production';
   const assetSuffix = isProd ? '' : '-dev';
   // TODO: Check if DOM contains an element with class "katex".
