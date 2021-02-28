@@ -10,8 +10,10 @@ export const siteTitle = 'Next.js Sample Website'
 export default function Layout({ children, home}: { children: React.ReactNode, home?: boolean }) {
   const isProd = process.env.NODE_ENV === 'production';
   const assetSuffix = isProd ? '' : '-dev';
-  // TODO: Check if DOM contains an element with class "katex".
-  const containsKatex = () => true;
+  const containsKatex = () => {
+    // TODO: Check if DOM contains an element with class "katex".
+    return true;
+  };
   const needsKatex = !home && containsKatex();
   return (
     <div className={styles.container}>
