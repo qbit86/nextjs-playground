@@ -36,22 +36,26 @@ export default function Layout({ children, home}: { children: React.ReactNode, h
       return span && span.className === 'katex';
     }
 
-    if (containsKatexSelf(children))
-      return true;
-
-    const fringe = Array<React.ReactNode>();
+    const explored = new Set<React.ReactNode>();
+    explored.add(children);
+    const fringe: Array<React.ReactNode> = [];
     fringe.push(children);
     while (fringe.length > 0) {
       const node: React.ReactNode = fringe.pop();
+      if (containsKatexSelf(children))
+        return true;
+
       const items: Array<React.ReactNode> = React.Children.toArray(node);
       for (const item of items) {
-        if (containsKatexSelf(item))
-          return true;
-        fringe.push(item);
+        if (!explored.has(item)) {
+          explored.add(item);
+          fringe.push(item);
+        }
       }
     }
-     */
 
+    return false;
+     */
     return true;
   };
   const needsKatex = !home && containsKatex();
