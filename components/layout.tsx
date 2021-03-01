@@ -3,6 +3,7 @@ import styles from './layout.module.css'
 import utilStyles from '../styles/utils.module.css'
 import Link from 'next/link'
 import nextConfig from '../next.config'
+import React from 'react'
 
 const name = 'Lorem Ipsum'
 export const siteTitle = 'Next.js Sample Website'
@@ -12,6 +13,23 @@ export default function Layout({ children, home}: { children: React.ReactNode, h
   const assetSuffix = isProd ? '' : '-dev';
   const containsKatex = () => {
     // TODO: Check if DOM contains an element with class "katex".
+    /*
+    let containsKatexCore = function (node: React.ReactNode): boolean {
+      const span = node as HTMLSpanElement;
+      if (span && span.className === 'katex')
+        return true;
+
+      let result: boolean = false;
+      React.Children.forEach(node, (child: React.ReactNode) => {
+        result = containsKatexCore(child);
+        if (result)
+          return;
+      });
+      return result;
+    };
+
+    return containsKatexCore(children);
+    */
     return true;
   };
   const needsKatex = !home && containsKatex();
