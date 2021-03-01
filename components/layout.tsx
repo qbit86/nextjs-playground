@@ -19,13 +19,13 @@ export default function Layout({ children, home}: { children: React.ReactNode, h
       if (span && span.className === 'katex')
         return true;
 
-      let result: boolean = false;
-      React.Children.forEach(node, (child: React.ReactNode) => {
-        result = containsKatexCore(child);
-        if (result)
-          return;
-      });
-      return result;
+      const items: Array<React.ReactNode> = React.Children.toArray(node);
+      for (const item of items) {
+        if (containsKatexCore(item))
+          return true;
+      }
+
+      return false;
     };
 
     return containsKatexCore(children);
