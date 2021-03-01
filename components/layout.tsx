@@ -42,7 +42,7 @@ export default function Layout({ children, home}: { children: React.ReactNode, h
     fringe.push(children);
     while (fringe.length > 0) {
       const node: React.ReactNode = fringe.pop();
-      if (containsKatexSelf(children))
+      if (containsKatexSelf(node))
         return true;
 
       const items: Array<React.ReactNode> = React.Children.toArray(node);
