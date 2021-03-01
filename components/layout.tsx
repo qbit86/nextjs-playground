@@ -14,26 +14,9 @@ export default function Layout({ children, home}: { children: React.ReactNode, h
   const containsKatex = () => {
     // TODO: Check if DOM contains an element with class "katex".
     /*
-    const containsKatexCore = function (node: React.ReactNode): boolean {
-      const span = node as HTMLSpanElement;
-      if (span && span.className === 'katex')
-        return true;
-
-      const items: Array<React.ReactNode> = React.Children.toArray(node);
-      for (const item of items) {
-        if (containsKatexCore(item))
-          return true;
-      }
-
-      return false;
-    };
-
-    return containsKatexCore(children);
-     */
-    /*
     const containsKatexSelf = function (node: React.ReactNode): boolean {
       const span = node as HTMLSpanElement;
-      return span && span.className === 'katex';
+      return span && (span.className === 'katex');
     }
 
     const explored = new Set<React.ReactNode>();
@@ -45,13 +28,12 @@ export default function Layout({ children, home}: { children: React.ReactNode, h
       if (containsKatexSelf(node))
         return true;
 
-      const items: Array<React.ReactNode> = React.Children.toArray(node);
-      for (const item of items) {
+      React.Children.forEach(node, (item: React.ReactNode) => {
         if (!explored.has(item)) {
           explored.add(item);
           fringe.push(item);
         }
-      }
+      });
     }
 
     return false;
