@@ -13,7 +13,7 @@ export default function Post({ postData }: {
   }
 }) {
   // TODO: Check if DOM contains an element with class "katex".
-  const containsKatex = () => true;
+  const containsKatex = () => postData.contentHtml.includes('katex');
   const needsKatex = containsKatex();
   return (
     <Layout>
